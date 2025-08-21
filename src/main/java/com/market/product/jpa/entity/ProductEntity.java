@@ -65,6 +65,10 @@ public class ProductEntity {
     @Schema(description = "Archive status of the product")
     private Boolean isArchive = false;
 
+    @Column(name = "is_published", nullable = false)
+    @Schema(description = "Publish status of  the product")
+    private Boolean isPublished = false;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     @Schema(description = "Tags associated with the product")
     private Set<ProductTagEntity> tags;

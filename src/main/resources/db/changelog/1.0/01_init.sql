@@ -35,6 +35,7 @@ CREATE TABLE product
     creation_date TIMESTAMP      NOT NULL DEFAULT NOW(),
     update_date   TIMESTAMP      NOT NULL DEFAULT NOW(),
     is_archive    BOOLEAN        NOT NULL DEFAULT FALSE,
+    is_published    BOOLEAN        NOT NULL DEFAULT FALSE,
     CONSTRAINT group_id_fk FOREIGN KEY (group_id) REFERENCES product_group (id)
 );
 
@@ -50,6 +51,7 @@ COMMENT ON COLUMN product.group_id IS 'Identifier of the product group';
 COMMENT ON COLUMN product.creation_date IS 'Date of creation';
 COMMENT ON COLUMN product.update_date IS 'Date of the last update';
 COMMENT ON COLUMN product.is_archive IS 'Archive status of the product';
+COMMENT ON COLUMN product.is_published IS 'Publish status of  the product';
 
 CREATE TABLE price_history
 (
@@ -69,7 +71,7 @@ COMMENT ON COLUMN price_history.change_date IS 'Date of the price change';
 CREATE TABLE attribute_info
 (
     id            BIGSERIAL PRIMARY KEY,
-    value         VARCHAR(100) NOT NULL,
+    value         VARCHAR(100),
     attribute_id  BIGINT       NOT NULL,
     product_id    BIGINT       NOT NULL,
     creation_date TIMESTAMP    NOT NULL DEFAULT NOW(),

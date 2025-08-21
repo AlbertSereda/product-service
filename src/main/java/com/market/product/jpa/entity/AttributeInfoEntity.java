@@ -20,7 +20,7 @@ public class AttributeInfoEntity {
     @Schema(description = "Unique identifier for the attribute value")
     private Long id;
 
-    @Column(name = "value", nullable = false, length = 100)
+    @Column(name = "value", length = 100)
     @Schema(description = "Value of the attribute")
     private String value;
 
